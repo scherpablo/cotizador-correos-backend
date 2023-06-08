@@ -7,6 +7,7 @@ const app = express();
 
 dotenv.config();
 const port = process.env.PORT || 5000;
+const frontend_Url = process.env.FRONT_URL || "http://localhost:5173";
 
 // REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel
 mercadopago.configure({
@@ -33,8 +34,8 @@ app.post("/create_preference", (req, res) => {
             },
         ],
         back_urls: {
-            success: "http://localhost:5173",
-            failure: "http://localhost:5173",
+            success: `${frontend_Url}`,
+            failure: `${frontend_Url}`,
             pending: "",
         },
         auto_return: "approved",
