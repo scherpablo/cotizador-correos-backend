@@ -7,15 +7,21 @@ const app = express();
 
 dotenv.config();
 const port = process.env.PORT || 5000;
-const frontend_Url = process.env.FRONT_URL || "http://localhost:5173";
+const frontend_Url = process.env.FRONTEND_URL || "http://localhost:5173";
 
 // REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel
 mercadopago.configure({
-    access_token: process.env.MP_ACCESS_TOKEN,
+    access_token: process.env.MP_ACCESS_TOKEN || "TEST-7768342534977298-060617-c2d3923fcb1e4e08dbd42140c9efab8d-1392387735",
 });
 
+// Configurar opciones de CORS
+const corsOptions = {
+    origin: `${frontend_Url}`, // Reemplaza con la URL de tu frontend en Vercel
+    methods: ['GET', 'POST'], // Métodos HTTP permitidos
+};
+
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
     res.send("servidor funcionando");
