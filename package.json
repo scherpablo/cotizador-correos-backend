@@ -1,0 +1,27 @@
+{
+  "name": "server-mp-checkout",
+  "version": "1.0.0",
+  "description": "backend cotizador correos",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "nodejs, express, cors, mercadopago"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "cors",
+    "mercadopago"
+  ],
+  "author": "Pablo Scherpa",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "mercadopago": "^1.5.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
