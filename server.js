@@ -28,21 +28,21 @@ app.get("/", (req, res) => {
 });
 
 app.post("/create_preference", (req, res) => {
-    const { title, quantity, currency_id, unit_price } = req.body;
+    const { description, quantity, currency_id, unit_price } = req.body;
 
     let preference = {
         items: [
             {
-                title: title,
+                title: description,
                 quantity: Number(quantity),
                 currency_id: currency_id,
                 unit_price: Number(unit_price),
             },
         ],
         back_urls: {
-            success: `${frontend_Url}`,
-            failure: `${frontend_Url}`,
-            pending: "",
+            success: `${frontend_Url}/success`,
+            failure: `${frontend_Url}/failure`,
+            pending: `${frontend_Url}/pending`,
         },
         auto_return: "approved",
     };
